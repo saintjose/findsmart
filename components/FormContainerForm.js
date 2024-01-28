@@ -1,31 +1,35 @@
-import React from 'react';
+import React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Padding, Color, Border, FontSize, FontFamily } from "../GlobalStyles";
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { TouchableOpacity } from "react-native-gesture-handler";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const FormContainerForm = ({ navigation }) => {
   // console.log(navigation)
-  const [email, onChangeEmail] = React.useState('');
-  const [password, onChangePassword] = React.useState('');
+  const [email, onChangeEmail] = React.useState("");
+  const [password, onChangePassword] = React.useState("");
 
   const handleLogin = async () => {
-    
     try {
-      const response = await axios.post('https://find-smart.net/api/login', { password: password, email: email});
-      if(response.data.authorization) {
-        await AsyncStorage.setItem('jwtToken', response.data.authorization.token);
-        await AsyncStorage.setItem('user', JSON.stringify(response.data.user));
-        
-        navigation.navigate('Dashboard');
+      const response = await axios.post("https://find-smart.net/api/login", {
+        password: password,
+        email: email,
+      });
+      if (response.data.authorization) {
+        await AsyncStorage.setItem(
+          "jwtToken",
+          response.data.authorization.token
+        );
+        await AsyncStorage.setItem("user", JSON.stringify(response.data.user));
+
+        navigation.navigate("Dashboard");
       }
-      
     } catch (error) {
-      alert('Arrr matey! No treasure found. (Invalid credentials)');
+      alert("Arrr matey! No treasure found. (Invalid credentials)");
     }
-  }
+  };
 
   return (
     <View style={styles.divParent}>
@@ -37,8 +41,12 @@ const FormContainerForm = ({ navigation }) => {
               contentFit="cover"
               source={require("../assets/fi-646094.png")}
             />
-            <TextInput onChangeText={onChangeEmail} style={[styles.eMailId, styles.eMailIdTypo]} 
-            placeholder="Email" value={email}/>
+            <TextInput
+              onChangeText={onChangeEmail}
+              style={[styles.eMailId, styles.eMailIdTypo]}
+              placeholder="Email"
+              value={email}
+            />
           </View>
           <View style={[styles.input1, styles.inputSpaceBlock]}>
             <Image
@@ -46,7 +54,13 @@ const FormContainerForm = ({ navigation }) => {
               contentFit="cover"
               source={require("../assets/fi-2889676.png")}
             />
-            <TextInput onChangeText={onChangePassword} secureTextEntry={true} style={[styles.eMailId, styles.eMailIdTypo]} value={password} placeholder="Mot de passe"/>
+            <TextInput
+              onChangeText={onChangePassword}
+              secureTextEntry={true}
+              style={[styles.eMailId, styles.eMailIdTypo]}
+              value={password}
+              placeholder="Mot de passe"
+            />
           </View>
           <View style={[styles.input2, styles.inputFlexBox]}>
             <View style={styles.inputFlexBox}>
@@ -74,7 +88,7 @@ const FormContainerForm = ({ navigation }) => {
         </View>
         <Text
           style={[styles.tabButton1, styles.tabFlexBox]}
-          onPress={() => navigation.navigate('Inscrire')}
+          onPress={() => navigation.navigate("Inscrire")}
         >
           <Text style={[styles.register, styles.registerClr]}>
             <Text style={styles.register1}>Register</Text>

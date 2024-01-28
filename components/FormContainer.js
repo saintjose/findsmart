@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import { Image } from "expo-image";
 import { FontFamily, Color, Border, Padding, FontSize } from "../GlobalStyles";
 
@@ -10,7 +10,10 @@ const FormContainer = () => {
     <View style={[styles.headerBg, styles.barrePosition]}>
       <View style={[styles.headerBgChild, styles.headerPosition]} />
       <View style={[styles.headerBgItem, styles.headerPosition]} />
-      <Text style={[styles.icon, styles.iconBorder]} onPress={() => navigation.goBack()}>
+      <Text
+        style={[styles.icon, styles.iconBorder]}
+        onPress={() => navigation.goBack()}
+      >
         <Image
           style={styles.fi2223615Icon}
           contentFit="cover"

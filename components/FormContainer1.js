@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, Pressable, TextInput } from "react-native";
 import { Padding, Color, Border, FontSize, FontFamily } from "../GlobalStyles";
 
 const FormContainer1 = () => {
-  const [email, onChangeEmail] = React.useState('');
-  const [password, onChangePassword] = React.useState('');
+  const [email, onChangeEmail] = React.useState("");
+  const [password, onChangePassword] = React.useState("");
 
   return (
     <View style={styles.divParent}>
@@ -17,8 +17,12 @@ const FormContainer1 = () => {
               contentFit="cover"
               source={require("../assets/fi-646094.png")}
             />
-            <TextInput onChangeText={onChangeEmail} style={[styles.eMailId, styles.eMailIdTypo]} 
-            placeholder="Email" value={email}/>
+            <TextInput
+              onChangeText={onChangeEmail}
+              style={[styles.eMailId, styles.eMailIdTypo]}
+              placeholder="Email"
+              value={email}
+            />
           </View>
           <View style={[styles.input1, styles.inputSpaceBlock]}>
             <Image
@@ -26,7 +30,10 @@ const FormContainer1 = () => {
               contentFit="cover"
               source={require("../assets/fi-2889676.png")}
             />
-            <TextInput style={[styles.eMailId, styles.eMailIdTypo]} placeholder="Mot de passe"/>
+            <TextInput
+              style={[styles.eMailId, styles.eMailIdTypo]}
+              placeholder="Mot de passe"
+            />
           </View>
           <View style={[styles.input2, styles.inputFlexBox]}>
             <View style={styles.inputFlexBox}>

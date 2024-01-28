@@ -1,6 +1,6 @@
 import React from "react";
-import { FontAwesome5 } from '@expo/vector-icons';
-import { StyleSheet, View, Text, Button, ImageBackground} from 'react-native';
+import { FontAwesome5 } from "@expo/vector-icons";
+import { StyleSheet, View, Text, Button, ImageBackground } from "react-native";
 
 export const RegisterScreen = () => {
   return (
@@ -40,7 +40,11 @@ export const RegisterScreen = () => {
                 </div>
                 <div className="input">
                   <img className="fi" alt="Fi" src="fi-646094.svg" />
-                  <input className="email-ID" placeholder="Email-ID" type="email" />
+                  <input
+                    className="email-ID"
+                    placeholder="Email-ID"
+                    type="email"
+                  />
                 </div>
                 <div className="input">
                   <img className="fi" alt="Fi" src="fi-2889676.svg" />

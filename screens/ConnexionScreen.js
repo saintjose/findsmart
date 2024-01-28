@@ -1,19 +1,25 @@
 import * as React from "react";
-import { StyleSheet, View, Text, 
+import {
+  StyleSheet,
+  View,
+  Text,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
-  Keyboard, Platform } from "react-native";
+  Keyboard,
+  Platform,
+} from "react-native";
 import FormContainer from "../components/FormContainer";
 import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
 import FormContainerForm from "../components/FormContainerForm";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const ConnexionScreen = ({navigation}) => {
+const ConnexionScreen = ({ navigation }) => {
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={[styles.connexion, styles.connexionBg]}>
           <FormContainer />
           <View style={[styles.connexionChild, styles.connexionBg]} />
@@ -25,9 +31,9 @@ const ConnexionScreen = ({navigation}) => {
               <Text style={styles.smart}>SMART</Text>
             </Text>
           </View>
-          <FormContainerForm  navigation={navigation} />
+          <FormContainerForm navigation={navigation} />
         </View>
-        </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };
@@ -39,7 +45,7 @@ const styles = StyleSheet.create({
   inner: {
     padding: 24,
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: "space-around",
   },
   connexionBg: {
     backgroundColor: Color.colorWhite,

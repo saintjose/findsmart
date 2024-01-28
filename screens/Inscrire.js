@@ -3,37 +3,37 @@ import { Image } from "expo-image";
 import { StyleSheet, View, Pressable, Text, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontFamily, Color, FontSize, Padding, Border } from "../GlobalStyles";
-import Toast from 'react-native-toast-message';
+import Toast from "react-native-toast-message";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import axios from "axios";
 // import { TextInput } from "react-native-gesture-handler";
 
 const Inscrire = () => {
   const navigation = useNavigation();
-  const [username, onChangeUsername] = React.useState('')
-  const [password, onChangePassword] = React.useState('')
-  const [telephone, onChangeTelephone] = React.useState('')
-  const [email, onChangeEmail] = React.useState('')
-
+  const [username, onChangeUsername] = React.useState("");
+  const [password, onChangePassword] = React.useState("");
+  const [telephone, onChangeTelephone] = React.useState("");
+  const [email, onChangeEmail] = React.useState("");
 
   const handleRegister = async () => {
-    
     try {
-      const response = await axios.post('https://find-smart.net/api/register', { name: username, password: password, email: email,
-    telephone: telephone });
+      const response = await axios.post("https://find-smart.net/api/register", {
+        name: username,
+        password: password,
+        email: email,
+        telephone: telephone,
+      });
       // await AsyncStorage.setItem('jwtToken', response.data.token);
-      if(response.data.user.length != 0 ) {
-        alert('Inscription reussie ! Veuillez vous connectez');
-        navigation.navigate('Connexion');
+      if (response.data.user.length != 0) {
+        alert("Inscription reussie ! Veuillez vous connectez");
+        navigation.navigate("Connexion");
       }
-      
     } catch (error) {
-      alert('Arrr matey! No treasure found. (Invalid credentials)');
+      alert("Arrr matey! No treasure found. (Invalid credentials)");
     }
-  }
+  };
 
   return (
-    
     <View style={styles.inscrire}>
       <View style={styles.headerBg}>
         <Image
@@ -88,8 +88,11 @@ const Inscrire = () => {
                 contentFit="cover"
                 source={require("../assets/fi-1077063.png")}
               />
-              <TextInput onChangeText={onChangeUsername} value={username} placeholder="Nom & Prenom"
-                style={[styles.nomPrenom, styles.loginLayout, { height : 20}]}
+              <TextInput
+                onChangeText={onChangeUsername}
+                value={username}
+                placeholder="Nom & Prenom"
+                style={[styles.nomPrenom, styles.loginLayout, { height: 20 }]}
               />
             </View>
             <View style={[styles.inputShadowBox, styles.pB]}>
@@ -98,7 +101,16 @@ const Inscrire = () => {
                 contentFit="cover"
                 source={require("../assets/fi-646094.png")}
               />
-              <TextInput onChangeText={onChangeEmail} style={[styles.nomPrenom, styles.loginLayout, styles.inputStyle]} value={email} placeholder="Email" />
+              <TextInput
+                onChangeText={onChangeEmail}
+                style={[
+                  styles.nomPrenom,
+                  styles.loginLayout,
+                  styles.inputStyle,
+                ]}
+                value={email}
+                placeholder="Email"
+              />
             </View>
             <View style={[styles.inputShadowBox, styles.pB]}>
               <Image
@@ -106,7 +118,17 @@ const Inscrire = () => {
                 contentFit="cover"
                 source={require("../assets/fi-2889676.png")}
               />
-              <TextInput onChangeText={onChangePassword} secureTextEntry={true} style={[styles.nomPrenom, styles.loginLayout, styles.inputStyle]} value={password} placeholder="Mot de passe" />
+              <TextInput
+                onChangeText={onChangePassword}
+                secureTextEntry={true}
+                style={[
+                  styles.nomPrenom,
+                  styles.loginLayout,
+                  styles.inputStyle,
+                ]}
+                value={password}
+                placeholder="Mot de passe"
+              />
             </View>
             <View style={[styles.inputShadowBox, styles.pB]}>
               <Image
@@ -114,10 +136,19 @@ const Inscrire = () => {
                 contentFit="cover"
                 source={require("../assets/fi-159832.png")}
               />
-              <TextInput onChangeText={onChangeTelephone} style={[styles.nomPrenom, styles.loginLayout, styles.inputStyle]} value={telephone} placeholder="Telephone" />
+              <TextInput
+                onChangeText={onChangeTelephone}
+                style={[
+                  styles.nomPrenom,
+                  styles.loginLayout,
+                  styles.inputStyle,
+                ]}
+                value={telephone}
+                placeholder="Telephone"
+              />
             </View>
           </View>
-          <TouchableOpacity style={styles.input4} onPress={handleRegister }>
+          <TouchableOpacity style={styles.input4} onPress={handleRegister}>
             <Text style={[styles.sinscrire1, styles.emailpassFlexBox]}>
               S’inscrire
             </Text>
@@ -139,11 +170,10 @@ const Inscrire = () => {
 };
 
 const styles = StyleSheet.create({
-  
   pB: {
-    paddingBottom: 30
+    paddingBottom: 30,
   },
-  inputStyle: { height: 20, marginLeft: 10},
+  inputStyle: { height: 20, marginLeft: 10 },
   headerLayout: {
     opacity: 0.5,
     maxHeight: "100%",
@@ -178,7 +208,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontSize: FontSize.textSmLeading5FontMedium_size,
   },
- 
+
   tabShadowBox: {
     paddingVertical: Padding.p_xs,
     paddingHorizontal: Padding.p_base,

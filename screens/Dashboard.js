@@ -5,21 +5,22 @@ import { Color, Padding, FontFamily, FontSize, Border } from "../GlobalStyles";
 import AsyncStorage from "@react-native-community/async-storage";
 import axios from "axios";
 
-
 const Dashboard = () => {
   const [data, setData] = React.useState([]);
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    
     const fetchData = async () => {
       try {
-        const token = await AsyncStorage.getItem('jwtToken'); // Remplacez par votre token Bearer
-        const response = await axios.get('https://find-smart.net/api/artisans-top', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const token = await AsyncStorage.getItem("jwtToken"); // Remplacez par votre token Bearer
+        const response = await axios.get(
+          "https://find-smart.net/api/artisans-top",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         setData(response.data);
       } catch (err) {
@@ -28,10 +29,8 @@ const Dashboard = () => {
     };
 
     // fetchData();
-  }, [])
+  }, []);
   return (
-
-    
     <View style={styles.home}>
       <View style={[styles.headerBg, styles.headerBgBg]}>
         <Image
@@ -44,10 +43,14 @@ const Dashboard = () => {
           contentFit="cover"
           source={require("../assets/ellipse-2.png")}
         />
-       
+
         <View style={[styles.ellipseParent, styles.parentPosition]}>
           <Image
-            style={[styles.frameChild, styles.childPosition, { borderRadius: 20 }]}
+            style={[
+              styles.frameChild,
+              styles.childPosition,
+              { borderRadius: 20 },
+            ]}
             contentFit="cover"
             source={require("../assets/ellipse-homme.png")}
           />
@@ -111,9 +114,14 @@ const Dashboard = () => {
         style={[styles.listRecommanParent, styles.parentPosition]}
         onPress={() => {}}
       >
-        
         <View style={[styles.listRecomman1, styles.listPosition]}>
-          <View style={[styles.listRecommanChild, styles.homeItemLayout, {borderRadius: 20}]} />
+          <View
+            style={[
+              styles.listRecommanChild,
+              styles.homeItemLayout,
+              { borderRadius: 20 },
+            ]}
+          />
           <Text style={[styles.cuisinire, styles.cuisinireTypo]}>
             Cuisinière
           </Text>
@@ -121,7 +129,11 @@ const Dashboard = () => {
             Natacha Kouadio
           </Text>
           <Image
-            style={[styles.listRecommanItem, styles.iconItemLayout, {borderRadius: 20}]}
+            style={[
+              styles.listRecommanItem,
+              styles.iconItemLayout,
+              { borderRadius: 20 },
+            ]}
             contentFit="cover"
             source={require("../assets/ellipse-homme.png")}
           />
@@ -137,13 +149,23 @@ const Dashboard = () => {
           </View>
         </View>
         <View style={[styles.listRecomman2, styles.listPosition]}>
-          <View style={[styles.listRecommanChild, styles.homeItemLayout, {borderRadius: 20}]} />
+          <View
+            style={[
+              styles.listRecommanChild,
+              styles.homeItemLayout,
+              { borderRadius: 20 },
+            ]}
+          />
           <Text style={[styles.nounou, styles.nounouTypo]}>Nounou</Text>
           <Text style={[styles.mariamCoulibaly, styles.nounouTypo]}>
             Mariam Coulibaly
           </Text>
           <Image
-            style={[styles.listRecommanItem, styles.iconItemLayout, {borderRadius: 20}]}
+            style={[
+              styles.listRecommanItem,
+              styles.iconItemLayout,
+              { borderRadius: 20 },
+            ]}
             contentFit="cover"
             source={require("../assets/ellipse-fille.png")}
           />
@@ -159,7 +181,13 @@ const Dashboard = () => {
           </View>
         </View>
         <View style={[styles.listRecomman3, styles.listPosition]}>
-          <View style={[styles.listRecommanChild, styles.homeItemLayout, {borderRadius: 20}]} />
+          <View
+            style={[
+              styles.listRecommanChild,
+              styles.homeItemLayout,
+              { borderRadius: 20 },
+            ]}
+          />
           <Text style={[styles.electricien, styles.jeanJackTypo]}>
             Electricien
           </Text>
@@ -481,7 +509,7 @@ const styles = StyleSheet.create({
     width: "87.95%",
     top: "38.89%",
     right: "5.9%",
-    bottom: "38.89%"
+    bottom: "38.89%",
   },
   headerBg: {
     height: "17.06%",
