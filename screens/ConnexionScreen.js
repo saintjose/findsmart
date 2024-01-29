@@ -11,7 +11,6 @@ import {
 import FormContainer from "../components/FormContainer";
 import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
 import FormContainerForm from "../components/FormContainerForm";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ConnexionScreen = ({ navigation }) => {
   return (
