@@ -29,8 +29,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "a863efb9-3370-46b2-9bff-4b6035fc3f95"
+        "projectId": "37ead9cd-6d55-4b32-985e-30b134bf04cb"
       }
-    }
+    },
+    "owner": "micessien"
   }
 }
